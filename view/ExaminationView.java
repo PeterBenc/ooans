@@ -3,13 +3,10 @@ package view;
 import java.util.Scanner;
 
 import controller.ExaminationController;
-import model.Pacient;
+import pacients.Pacient;
 
 public class ExaminationView {
 
-    public ExaminationView() {
-
-    }
     protected Scanner sc;
     protected ExaminationController examinationController;
 
