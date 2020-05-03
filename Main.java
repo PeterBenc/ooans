@@ -7,9 +7,9 @@ import view.ExaminationView;
 public class Main {
 
    private static Scanner sc = new Scanner(System.in);
-   private static ExaminationView examinationView = new ExaminationView(sc);
    private static PacientController pacientController = new PacientController();
    private static AcceptPacientView acceptPacientView = new AcceptPacientView(sc, pacientController);
+   private static ExaminationView examinationView = new ExaminationView(sc, pacientController);
 
    public static void init() {
       // tu sa mozu vytovrit nejak

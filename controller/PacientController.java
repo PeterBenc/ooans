@@ -8,12 +8,30 @@ import users.*;
 public class PacientController {
 
     private ArrayList<Pacient> pacients = new ArrayList<Pacient>();
-    private EventPlanner hospitalizationPlaner = new HospitalizationPlanner();
-    private EventPlanner examinationPlanner = new ExaminationPlanner();
+    private SchedulePlanner hospitalizationPlaner = new HospitalizationPlanner();
+    private SchedulePlanner examinationPlanner = new ExaminationPlanner();
+    private SchedulePlanner noscheduPlanner = new NoSchedulePlanner();
     
-    public void addPacient(String pacientName) {
-        Pacient newPacient = new Pacient(this.examinationPlanner);
+    public void addPacient(String name, int createExaminationPlan) {
+        Pacient newPacient = new Pacient(
+            name,
+            createExaminationPlan == 1 ? this.examinationPlanner : this.noscheduPlanner
+        );
         this.pacients.add(newPacient);
-        newPacient.createEventPlan();
+        newPacient.createSchedule();
     }
+
+    public void examinePacient(String name) {
+        Pacient ePacient;
+        for (Pacient pacient:pacients) {
+            if (pacient.getName().equals(name)) {
+                ePacient = pacient;
+                break;
+            }
+        }
+        // metoda co zobrazi detaily vysetrenia, ak neni chceme dat nullObject a skoncit
+        // tu uz ide volanie examinationControllera
+        
+    }
+
 }

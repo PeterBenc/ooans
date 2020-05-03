@@ -1,9 +1,12 @@
 package pacientPlanStrategies;
 
-public class HospitalizationPlanner implements EventPlanner {
+import schedule.Schedule;
 
-    public void createEvents() {
+public class HospitalizationPlanner implements SchedulePlanner {
+
+    public Schedule createEvents() {
         System.out.println("Created hospitalization plan for pacient");
+        return new Schedule();
     }
     
 }

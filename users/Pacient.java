@@ -1,21 +1,24 @@
 package users;
 
-import pacientPlanStrategies.EventPlanner;
+import pacientPlanStrategies.SchedulePlanner;
+import schedule.Schedule;
 
-public class Pacient {
+public class Pacient extends User{
 
-    protected EventPlanner eventPlanner;
+    private SchedulePlanner schedulePlanner;
+    private Schedule schedule;
 
-    public Pacient(EventPlanner eventPlanner) {
-        this.eventPlanner = eventPlanner;
+    public Pacient(String name, SchedulePlanner schedulePlanner) {
+        super(name);
+        this.schedulePlanner = schedulePlanner;
     }
 
-    public void setEventPlanner(EventPlanner eventPlanner) {
-        this.eventPlanner = eventPlanner;
+    public void setSchedulePlanner(SchedulePlanner schedulePlanner) {
+        this.schedulePlanner = schedulePlanner;
     }
 
-    public void createEventPlan() {
-        this.eventPlanner.createEvents();
+    public void createSchedule() {
+        this.schedulePlanner.createEvents();
     }
     
 }
