@@ -6,12 +6,12 @@ import schedule.Schedule;
 
 public class PacientView {
     protected Scanner sc;
-    private UserController pacientController;
+    private UserController userController;
     // protected ExaminationController examinationController;
 
-    public PacientView(Scanner sc, UserController pacientController) {
+    public PacientView(Scanner sc, UserController userController) {
         this.sc = sc;
-        this.pacientController = pacientController;
+        this.userController = userController;
     }
 
     public void acceptPatient() {
@@ -19,13 +19,15 @@ public class PacientView {
         String pacientName = sc.nextLine();
         System.out.println("Chcete vytvorit pacientovi plan vysetrenia, 0/1");
         int createExaminationPlan = sc.nextInt();
-        pacientController.addPacient(pacientName, createExaminationPlan);
+        sc.nextLine();
+        userController.addPacient(pacientName, createExaminationPlan);
     }
 
     public void printPacientSchedule() {
         System.out.println("Zadaj meno pacienta");
         String name = sc.nextLine();
-        Schedule schedule =  this.pacientController.getPacient(name).getSchedule();
+        Schedule schedule =  this.userController.getPacient(name).getSchedule();
+        schedule.getEvents();
         // tu by mohol byt iterator na vypisanie tych eventov co sa maju stat
     }
 }

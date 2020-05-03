@@ -11,7 +11,7 @@ public class Main {
    private static ExaminationController examinationController = new ExaminationController();
    private static UserController pacientController = new UserController(examinationController);
    private static PacientView acceptPacientView = new PacientView(sc, pacientController);
-   private static ExaminationView examinationView = new ExaminationView(sc, pacientController);
+   private static ExaminationView examinationView = new ExaminationView(sc, examinationController);
 
    public static void init() {
       examinationController.setUserController(pacientController);
@@ -23,6 +23,7 @@ public class Main {
          int scenarioNumber;
          System.out.println("Zadaj cislo scenara: ");
          scenarioNumber = sc.nextInt();
+         sc.nextLine();
          if (scenarioNumber == 0) { break; }
          switch(scenarioNumber) {
             case 1:
@@ -35,6 +36,9 @@ public class Main {
                break;
             case 9:
                acceptPacientView.acceptPatient();
+               break;
+            case 10:
+               acceptPacientView.printPacientSchedule();
                break;
             default: break;
          }

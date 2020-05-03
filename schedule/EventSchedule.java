@@ -14,6 +14,7 @@ public class EventSchedule extends Schedule {
 
     @Override
     public ArrayList<Event> getEvents() {
+        System.out.println(this.events);
         return this.events;
     }
     
