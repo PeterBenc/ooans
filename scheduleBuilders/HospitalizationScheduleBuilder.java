@@ -1,8 +1,15 @@
 package scheduleBuilders;
 
+import controller.UserController;
 import schedule.Schedule;
 
 public class HospitalizationScheduleBuilder implements ScheduleBuilder {
+
+    private UserController userController;
+
+    public HospitalizationScheduleBuilder(UserController userController) {
+        this.userController = userController;
+    }
 
     @Override
     public void buildExaminations() {

@@ -5,10 +5,10 @@ import controller.*;
 
 public class AcceptPacientView {
     protected Scanner sc;
-    private PacientController pacientController;
+    private UserController pacientController;
     // protected ExaminationController examinationController;
 
-    public AcceptPacientView(Scanner sc, PacientController pacientController) {
+    public AcceptPacientView(Scanner sc, UserController pacientController) {
         this.sc = sc;
         this.pacientController = pacientController;
     }

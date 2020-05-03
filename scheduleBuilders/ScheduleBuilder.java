@@ -1,5 +1,4 @@
 package scheduleBuilders;
-
 import schedule.Schedule;
 
 public interface ScheduleBuilder {

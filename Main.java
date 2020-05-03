@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-import controller.PacientController;
+import controller.UserController;
 import view.AcceptPacientView;
 import view.ExaminationView;
 
 public class Main {
 
    private static Scanner sc = new Scanner(System.in);
-   private static PacientController pacientController = new PacientController();
+   private static UserController pacientController = new UserController();
    private static AcceptPacientView acceptPacientView = new AcceptPacientView(sc, pacientController);
    private static ExaminationView examinationView = new ExaminationView(sc, pacientController);
 

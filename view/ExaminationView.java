@@ -3,15 +3,15 @@ package view;
 import java.util.Scanner;
 
 import controller.ExaminationController;
-import controller.PacientController;
+import controller.UserController;
 import users.Pacient;
 
 public class ExaminationView {
 
     protected Scanner sc;
-    protected PacientController pacientController;
+    protected UserController pacientController;
 
-    public ExaminationView(Scanner sc, PacientController pacientController){
+    public ExaminationView(Scanner sc, UserController pacientController){
         this.sc = sc;
         this.pacientController = pacientController;
     }

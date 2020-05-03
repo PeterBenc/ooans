@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import pacientPlanStrategies.*;
 import users.*;
 
-public class PacientController {
+public class UserController {
 
     private ArrayList<Pacient> pacients = new ArrayList<Pacient>();
     private SchedulePlanner hospitalizationPlaner = new HospitalizationPlanner();
