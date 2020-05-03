@@ -1,6 +1,6 @@
 package pacientPlanStrategies;
 
-public interface SeverityPlan {
+public interface EventPlanner {
 
     public void createEvents();
     

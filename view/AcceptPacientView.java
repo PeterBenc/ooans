@@ -16,8 +16,10 @@ public class AcceptPacientView {
     public void acceptPatient() {
         System.out.println("Zadaj meno pacienta:");
         String pacientName = sc.nextLine();
-        System.out.println("Zadaj vaznost stavu pacienta.");
-        int severity = sc.nextInt();
-        pacientController.addPacient(pacientName, severity);
+        pacientController.addPacient(pacientName);
+        System.out.println("Pacient bol pridany do systemu. \nChcete vytvorit pacientovi plan vysetrenia");
+        int createExaminationPlan = sc.nextInt();
+        // tu sa zavola funkcia z controllera ktora bud vytvori null object alebo vysetrenie
+        // potom bude dalsi scenar ze ceknut nieco o pacientovi a ked tak to vrati null object
     }
 }

@@ -3,16 +3,16 @@ package controller;
 import java.util.ArrayList;
 
 import pacientPlanStrategies.*;
-import pacients.*;
+import users.*;
 
 public class PacientController {
 
     private ArrayList<Pacient> pacients = new ArrayList<Pacient>();
-    private SeverityPlan seriousCase = new SeriousCasePlan();
-    private SeverityPlan trivialCase = new TrivialCasePlan();
+    private EventPlanner hospitalizationPlaner = new HospitalizationPlanner();
+    private EventPlanner examinationPlanner = new ExaminationPlanner();
     
-    public void addPacient(String pacientName, int severity) {
-        Pacient newPacient = new Pacient(severity == 1 ? this.seriousCase : this.trivialCase);
+    public void addPacient(String pacientName) {
+        Pacient newPacient = new Pacient(this.examinationPlanner);
         this.pacients.add(newPacient);
         newPacient.createEventPlan();
     }

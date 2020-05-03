@@ -12,9 +12,7 @@ public class Main {
    private static AcceptPacientView acceptPacientView = new AcceptPacientView(sc, pacientController);
 
    public static void init() {
-      //toto musi vytovrit najprv vsetkych kontrollerov ktorych sa da
-      //potom vsetky view
-      // potom napr nejakych namockovanych pacientov a tak
+      // tu sa mozu vytovrit nejak
    }
     public static void main(String[] args) {
       init();

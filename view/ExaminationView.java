@@ -3,7 +3,7 @@ package view;
 import java.util.Scanner;
 
 import controller.ExaminationController;
-import pacients.Pacient;
+import users.Pacient;
 
 public class ExaminationView {
 
@@ -18,5 +18,7 @@ public class ExaminationView {
         System.out.println("Zadaj id pacienta");
         int pacientId = sc.nextInt();
         System.out.println("Vysetrenie bolo vykonane" + pacientId);
+        // tu bude ze chcete vytvorit hospitalizaciu
+        // ked tak sa zmeni ta strategy a zas sa zavola create events, 
     }
 }
