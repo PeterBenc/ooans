@@ -9,13 +9,13 @@ public class MRIMachine extends Machine {
 
     @Override
     public void setExaminationVariables() {
-        // TODO Auto-generated method stub
+        System.out.println("Setting variables on MRI machine");
 
     }
 
     @Override
     public void exexute() {
-        // TODO Auto-generated method stub
+        System.out.println("Executing examination on MRI machine");
 
     }
     

@@ -1,7 +1,9 @@
 package controller;
 
 import machines.CTMachine;
+import machines.EKGMachine;
 import machines.MRIMachine;
+import machines.Machine;
 import machines.MachineMediator;
 import pacientPlanStrategies.HospitalizationPlanner;
 import users.Pacient;
@@ -21,14 +23,17 @@ public class ExaminationController {
 
     public void examinePacient(String name, String machineName) {
         Pacient pacient = this.userController.getPacient(name);
-        pacient.setMachine(machineName.equals("CT") 
+        Machine machine = machineName.equals("CT") 
             ? new CTMachine(this.machineMediator)
             : new MRIMachine(this.machineMediator)
-        );
-        // this.machineMediator.
-        // tu zavolas metodu z view aby vypisala eventy resp null object..
-        // metoda co zobrazi detaily vysetrenia, ak neni chceme dat nullObject a skoncit
-        // tu uz ide volanie examinationControllera
-        
+        ;
+        EKGMachine ekgMachine = new EKGMachine(this.machineMediator);
+        machineMediator.setEkgMachine(ekgMachine);
+        machineMediator.setMachine(machine);
+        pacient.setEkgMachine(ekgMachine);
+        pacient.setMachine(machine);
+        machine.executeExamination();
+        pacient.setSchedulePlanner(userController.getHospitalizationPlanner());
+        pacient.createSchedule();
     }
 }

@@ -9,13 +9,13 @@ public class CTMachine extends Machine {
 
     @Override
     public void setExaminationVariables() {
-        // TODO Auto-generated method stub
+        System.out.println("Setting variables on CT machine");
 
     }
 
     @Override
     public void exexute() {
-        // TODO Auto-generated method stub
+        System.out.println("Executing examination on CT machine");
 
     }
     

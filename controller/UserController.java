@@ -18,6 +18,10 @@ public class UserController {
     public UserController(ExaminationController examinationController) {
         this.examinationController = examinationController;
     }
+
+    public SchedulePlanner getHospitalizationPlanner() {
+        return this.hospitalizationPlaner;
+    }
     
     public void addPacient(String name, int createExaminationPlan) {
         Pacient newPacient = new Pacient(

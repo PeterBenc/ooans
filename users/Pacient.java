@@ -14,7 +14,6 @@ public class Pacient extends User{
     public Pacient(String name, SchedulePlanner schedulePlanner) {
         super(name);
         this.schedulePlanner = schedulePlanner;
-        this.ekgMachine = new EKGMachine();
     }
 
     public void setSchedulePlanner(SchedulePlanner schedulePlanner) {

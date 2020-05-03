@@ -5,9 +5,14 @@ import java.util.Scanner;
 public abstract class Machine {
 
     protected MachineMediator machineMediator;
+    private boolean pacientStateOK = false;
 
     public Machine(MachineMediator machineMediator) {
         this.machineMediator = machineMediator;
+    }
+
+    public void setPacientStateOk(Boolean pacientStateOk) {
+        this.pacientStateOK = pacientStateOK;
     }
 
     public void executeExamination() {
@@ -19,6 +24,9 @@ public abstract class Machine {
          * vypis vysledky a vytvorenie nejakeho objektu
          */
         checkPacientState();
+        if(this.pacientStateOK == false) {
+            return;
+        }
         setExaminationVariables();
         confirmByPersonel();
         exexute(); // tu by sa mozno dal pouzit command
@@ -26,7 +34,7 @@ public abstract class Machine {
     }
 
     public void checkPacientState() {
-
+        this.machineMediator.checkEkgState();
     }
 
     public abstract void setExaminationVariables();
