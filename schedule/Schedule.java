@@ -1,5 +1,11 @@
 package schedule;
 
-public class Schedule {
+import java.util.ArrayList;
+
+import events.Event;
+
+public abstract class Schedule {
+
+
     
 }

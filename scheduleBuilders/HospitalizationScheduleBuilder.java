@@ -1,7 +1,12 @@
 package scheduleBuilders;
 
+import java.util.ArrayList;
+
 import controller.UserController;
+import events.*;
+import schedule.EventSchedule;
 import schedule.Schedule;
+import users.Pacient;
 
 public class HospitalizationScheduleBuilder implements ScheduleBuilder {
 
@@ -12,27 +17,36 @@ public class HospitalizationScheduleBuilder implements ScheduleBuilder {
     }
 
     @Override
-    public void buildExaminations() {
-        // TODO Auto-generated method stub
-
+    public ArrayList<Examination> buildExaminations(Pacient pacient) {
+        ArrayList<Examination> examinations = new ArrayList<Examination>();
+        examinations.add(new Examination(pacient, userController.getDoctor()));
+        examinations.add(new Examination(pacient, userController.getDoctor()));
+        return examinations;
     }
 
     @Override
-    public void buildTranfers() {
-        // TODO Auto-generated method stub
-
+    public ArrayList<Transfer> buildTranfers(Pacient pacient){
+        ArrayList<Transfer> transfers = new ArrayList<Transfer>();
+        transfers.add(new Transfer(pacient, userController.getNurse()));
+        transfers.add(new Transfer(pacient, userController.getNurse()));
+        return transfers;
     }
 
     @Override
-    public void buildTreatments() {
-        // TODO Auto-generated method stub
-
+    public ArrayList<Treatment> buildTreatments(Pacient pacient) {
+        ArrayList<Treatment> treatments = new ArrayList<Treatment>();
+        treatments.add(new Treatment(pacient, userController.getNurse()));
+        treatments.add(new Treatment(pacient, userController.getNurse()));
+        return treatments;
     }
 
     @Override
-    public Schedule getSchedule() {
-        // TODO Auto-generated method stub
-        return null;
+    public Schedule getSchedule(Pacient pacient) {
+        ArrayList<Event> events = new ArrayList<Event>();
+        events.addAll(buildExaminations(pacient));
+        events.addAll(buildTranfers(pacient));
+        events.addAll(buildTreatments(pacient));
+        return new EventSchedule(events);
     }
     
 }

@@ -1,14 +1,19 @@
 package scheduleBuilders;
+
+import java.util.ArrayList;
+
+import events.*;
 import schedule.Schedule;
+import users.Pacient;
 
 public interface ScheduleBuilder {
 
-    public void buildExaminations();
+    public ArrayList<Examination> buildExaminations(Pacient pacient);
 
-    public void buildTranfers();
+    public ArrayList<Transfer> buildTranfers(Pacient pacient);
 
-    public void buildTreatments();
+    public ArrayList<Treatment> buildTreatments(Pacient pacient);
 
-    public Schedule getSchedule();
+    public Schedule getSchedule(Pacient pacient);
     
 }
