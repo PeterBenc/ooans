@@ -6,6 +6,6 @@ import events.Event;
 
 public abstract class Schedule {
 
-
+    public abstract ArrayList<Event> getEvents();
     
 }

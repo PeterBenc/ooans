@@ -1,8 +1,8 @@
 package machines;
 
-public class CTMachine extends Machine {
+public class MRIMachine extends Machine {
 
-    public CTMachine(MachineMediator machineMediator) {
+    public MRIMachine(MachineMediator machineMediator) {
         super(machineMediator);
         // TODO Auto-generated constructor stub
     }

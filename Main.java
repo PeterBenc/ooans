@@ -1,17 +1,20 @@
 import java.util.Scanner;
 
+import controller.ExaminationController;
 import controller.UserController;
-import view.AcceptPacientView;
+import view.PacientView;
 import view.ExaminationView;
 
 public class Main {
 
    private static Scanner sc = new Scanner(System.in);
-   private static UserController pacientController = new UserController();
-   private static AcceptPacientView acceptPacientView = new AcceptPacientView(sc, pacientController);
+   private static ExaminationController examinationController = new ExaminationController();
+   private static UserController pacientController = new UserController(examinationController);
+   private static PacientView acceptPacientView = new PacientView(sc, pacientController);
    private static ExaminationView examinationView = new ExaminationView(sc, pacientController);
 
    public static void init() {
+      examinationController.setUserController(pacientController);
       // tu sa mozu vytovrit nejak
    }
     public static void main(String[] args) {

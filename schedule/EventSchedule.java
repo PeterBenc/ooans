@@ -11,5 +11,10 @@ public class EventSchedule extends Schedule {
     public EventSchedule(ArrayList<Event> events) {
         this.events = events;
     }
+
+    @Override
+    public ArrayList<Event> getEvents() {
+        return this.events;
+    }
     
 }

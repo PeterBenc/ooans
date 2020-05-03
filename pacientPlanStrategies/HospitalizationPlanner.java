@@ -1,6 +1,7 @@
 package pacientPlanStrategies;
 
 import controller.UserController;
+import machines.EKGMachine;
 import schedule.Schedule;
 import scheduleBuilders.HospitalizationScheduleBuilder;
 import users.Pacient;
@@ -14,9 +15,8 @@ public class HospitalizationPlanner implements SchedulePlanner {
     }
 
     public Schedule createEvents(Pacient pacient) {
+        System.out.println("Created hospitalization plan for pacient");
         return this.hospitalizationScheduleBuilder.getSchedule(pacient);
-        // System.out.println("Created hospitalization plan for pacient");
-        // return new Schedule();
     }
     
 }
