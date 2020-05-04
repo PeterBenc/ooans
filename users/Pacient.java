@@ -20,8 +20,8 @@ public class Pacient extends User{
         this.schedulePlanner = schedulePlanner;
     }
 
-    public void createSchedule() {
-        this.schedule = this.schedulePlanner.createEvents(this);
+    public void createSchedule(Doctor doctor) {
+        this.schedule = this.schedulePlanner.createEvents(this, doctor);
     }
 
     public Schedule getSchedule() {

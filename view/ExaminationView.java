@@ -42,13 +42,13 @@ public class ExaminationView {
 
     public void examinePacient() {
         mainMenu.render();
-        System.out.println("Zadaj id pacienta");
+        System.out.println("Zadaj meno pacienta");
         String name = sc.nextLine();
         //tu by mohlo byt vyprintovanie vysetrenia aspon nech ma meno
         System.out.println("Zadajte pristroj potrebny na vykonanie vysetrenia");
         String machine = sc.nextLine();
         this.examinationController.examinePacient(name, machine);
-        System.out.println("Vysetrenie bolo vykonane" + name);
+        System.out.println("Vysetrenie bolo ukoncene");
         // tu bude ze chcete vytvorit hospitalizaciu
         // ked tak sa zmeni ta strategy a zas sa zavola create events, 
     }

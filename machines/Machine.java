@@ -26,10 +26,10 @@ public abstract class Machine {
          * vykonanie vysetrenia
          * vypis vysledky a vytvorenie nejakeho objektu
          */
-//        checkPacientState();
-//        if(this.pacientStateOK == false) {
-//            return;
-//        }
+        checkPacientState();
+        if(this.pacientStateOK == false) {
+            return;
+        }
         setExaminationVariables();
         confirmByPersonel();
         exexute(); // tu by sa mozno dal pouzit command
@@ -47,7 +47,7 @@ public abstract class Machine {
         Scanner sc = new Scanner(System.in);
         int examinePacient = sc.nextInt();
         sc.nextLine();
-        // sc.close();
+        sc.close();
         return examinePacient == 1 ? true : false;
     }
 

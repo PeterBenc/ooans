@@ -1,7 +1,11 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import events.*;
+// import jdk.internal.event.Event;
+// import jdk.internal.net.http.websocket.Transport;
 import pacientPlanStrategies.*;
 import users.*;
 
@@ -38,12 +42,16 @@ public class UserController {
         this.pacients.add(newPacient);
 
 
-        newPacient.createSchedule();
+        newPacient.createSchedule(this.doctor);
     }
 
     public void transportPacient(String name) {
         Pacient pacient = getPacient(name);
-
+        ArrayList<Event> transports = pacient.getSchedule().getEvents();
+        for(Event event:transports) {
+            event.setDone(true);
+        }
+        System.out.println("Pacient bol presunuty");
     }
 
     public Pacient getPacient(String name) {

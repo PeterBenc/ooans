@@ -6,6 +6,7 @@ import controller.UserController;
 import events.*;
 import schedule.EventSchedule;
 import schedule.Schedule;
+import users.Doctor;
 import users.Pacient;
 
 public class ExaminationScheduleBuilder implements ScheduleBuilder {
@@ -25,10 +26,11 @@ public class ExaminationScheduleBuilder implements ScheduleBuilder {
     }
 
     @Override
-    public ArrayList<Transfer> buildTranfers(Pacient pacient) {
+    public ArrayList<Transfer> buildTranfers(Pacient pacient, Doctor doctor) {
         ArrayList<Transfer> transfers = new ArrayList<Transfer>();
-        transfers.add(new Transfer(pacient, userController.getNurse()));
-        transfers.add(new Transfer(pacient, userController.getNurse()));
+        Transfer transfer2 = new Transfer(pacient, userController.getNurse());
+        transfer2.registerObserver(doctor);
+        transfers.add(transfer2);
         return transfers;
     }
 
@@ -41,10 +43,10 @@ public class ExaminationScheduleBuilder implements ScheduleBuilder {
     }
 
     @Override
-    public Schedule getSchedule(Pacient pacient) {
+    public Schedule getSchedule(Pacient pacient, Doctor doctor) {
         ArrayList<Event> events = new ArrayList<Event>();
         events.addAll(buildExaminations(pacient));
-        events.addAll(buildTranfers(pacient));
+        events.addAll(buildTranfers(pacient, doctor));
         events.addAll(buildTreatments(pacient));
         return new EventSchedule(events);
     }

@@ -4,6 +4,7 @@ import events.Examination;
 import machines.*;
 import pacientPlanStrategies.HospitalizationPlanner;
 import schedule.ExaminationIterator;
+import users.Doctor;
 import users.Pacient;
 
 import java.lang.management.ManagementFactory;
@@ -23,8 +24,12 @@ public class ExaminationController {
     }
 
     public void examinePacient(String name, String machineName) {
-
+        Doctor doctor = this.userController.getDoctor();
         Pacient pacient = this.userController.getPacient(name);
+        if (doctor.getIsPacientReady() == false) {
+            System.out.println("Pacient nieje prevezeny na vysetrenie");
+            return;
+        }
 //        Machine machine = machineName.equals("CT")
 //            ? /*new CTMachine(this.machineMediator)*/ factory.getMachine("CT",this.machineMediator)
 //            :/* new MRIMachine(this.machineMediator)*/ factory.getMachine("MRI",this.machineMediator)
@@ -48,9 +53,10 @@ public class ExaminationController {
                 machine.executeExamination(examination);  // volanie template method
             }
         }
+        doctor.setIsPacientReady(false);
 
 
         pacient.setSchedulePlanner(userController.getHospitalizationPlanner());  // preco nastavime po vysetreniach gethospilaztion planner
-        pacient.createSchedule();
+        pacient.createSchedule(doctor);
     }
 }

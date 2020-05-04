@@ -71,14 +71,12 @@ public class PacientView {
                     break;
             }
         }
-        //   sc.close();
-
 
     }
 
     public void transportPatient() {
         System.out.println("Zadaj meno pacienta");
         String name = sc.nextLine();
-        // userController.
+        userController.transportPacient(name);
     }
 }

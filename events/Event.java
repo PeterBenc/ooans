@@ -17,4 +17,13 @@ public class Event {
         this.personel = personel;
     }
 
+    public void setDone(Boolean done) {
+    }
+
+    public void notifyAllObservers() {
+    }
+
+    public void registerObserver(Doctor doctor) {
+    }
+
 }
