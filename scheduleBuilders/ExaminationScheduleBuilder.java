@@ -19,8 +19,8 @@ public class ExaminationScheduleBuilder implements ScheduleBuilder {
     @Override
     public ArrayList<Examination> buildExaminations(Pacient pacient) {
         ArrayList<Examination> examinations = new ArrayList<Examination>();
-        examinations.add(new Examination(pacient, userController.getDoctor()));
-        examinations.add(new Examination(pacient, userController.getDoctor()));
+        examinations.add(new Examination(pacient, userController.getDoctor(),30));
+        examinations.add(new Examination(pacient, userController.getDoctor(),40));
         return examinations;
     }
 

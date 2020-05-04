@@ -12,5 +12,5 @@ public class EKGMachine {
         this.machineMediator.permitExamination();
         return true;
     }
-    
+
 }

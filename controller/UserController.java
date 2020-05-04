@@ -36,6 +36,8 @@ public class UserController {
             createExaminationPlan == 1 ? this.examinationPlanner : this.noschedulePlanner
         );
         this.pacients.add(newPacient);
+
+
         newPacient.createSchedule();
     }
 
