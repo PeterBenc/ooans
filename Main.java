@@ -14,8 +14,6 @@ public class Main {
    private static ExaminationView examinationView; // = new ExaminationView(sc, examinationController);
 
    public static void init() {
-      // examinationController.setUserController(pacientController);
-      // tu sa mozu vytovrit nejak
       sc = new Scanner(System.in);
       examinationController = new ExaminationController(UserController.getInstance(examinationController));
       pacientController = UserController.getInstance(examinationController);
@@ -38,6 +36,9 @@ public class Main {
                break;
             case 2:
                examinationView.examinePacient();
+               break;
+            case 3:
+               acceptPacientView.transportPatient();
                break;
             case 9:
                acceptPacientView.acceptPatient();

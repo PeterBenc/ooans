@@ -39,6 +39,11 @@ public class UserController {
         newPacient.createSchedule();
     }
 
+    public void transportPacient(String name) {
+        Pacient pacient = getPacient(name);
+        
+    }
+
     public Pacient getPacient(String name) {
         for (Pacient pacient:pacients) {
             if (pacient.getName().equals(name)) {
