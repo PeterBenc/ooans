@@ -13,8 +13,8 @@ public class ExaminationController {
     private UserController userController;
     private MachineMediator machineMediator = new MachineMediator();
 
-    public ExaminationController() {
-
+    public ExaminationController(UserController userController) {
+        this.userController = userController;
     }
     
     public void setUserController(UserController userController) {

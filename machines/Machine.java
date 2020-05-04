@@ -16,6 +16,7 @@ public abstract class Machine {
     }
 
     public void executeExamination() {
+        // template method
         /**
          * zistim ci je pacient v pohode, to bude ze mediatorom sa spytam
          * nastavenie najekych parametrov

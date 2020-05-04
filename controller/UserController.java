@@ -6,7 +6,7 @@ import pacientPlanStrategies.*;
 import users.*;
 
 public class UserController {
-
+    private static UserController userController = null;
     private ExaminationController examinationController;
     private ArrayList<Pacient> pacients = new ArrayList<Pacient>();
     private Doctor doctor = new Doctor("Dr. Drake Remore");
@@ -15,8 +15,15 @@ public class UserController {
     private SchedulePlanner examinationPlanner = new ExaminationPlanner(this);
     private SchedulePlanner noschedulePlanner = new NoSchedulePlanner();
 
-    public UserController(ExaminationController examinationController) {
+    private UserController(ExaminationController examinationController) {
         this.examinationController = examinationController;
+    }
+
+    public static UserController getInstance(ExaminationController examinationController) {
+        if (userController == null) {
+            userController = new UserController(examinationController);
+        }
+        return userController;
     }
 
     public SchedulePlanner getHospitalizationPlanner() {

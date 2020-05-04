@@ -28,6 +28,9 @@ public class PacientView {
         String name = sc.nextLine();
         Schedule schedule =  this.userController.getPacient(name).getSchedule();
         schedule.getEvents();
+        // pridame trvanie a cas tych eventov
+        // mozeme pouzit iteratora a vypisat napr sumu trvania
+        // 
         // tu by mohol byt iterator na vypisanie tych eventov co sa maju stat
     }
 }

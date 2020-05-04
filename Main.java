@@ -7,15 +7,20 @@ import view.ExaminationView;
 
 public class Main {
 
-   private static Scanner sc = new Scanner(System.in);
-   private static ExaminationController examinationController = new ExaminationController();
-   private static UserController pacientController = new UserController(examinationController);
-   private static PacientView acceptPacientView = new PacientView(sc, pacientController);
-   private static ExaminationView examinationView = new ExaminationView(sc, examinationController);
+   private static Scanner sc; // = new Scanner(System.in);
+   private static ExaminationController examinationController; // = new ExaminationController();
+   private static UserController pacientController; // = new UserController(examinationController);
+   private static PacientView acceptPacientView; // = new PacientView(sc, pacientController);
+   private static ExaminationView examinationView; // = new ExaminationView(sc, examinationController);
 
    public static void init() {
-      examinationController.setUserController(pacientController);
+      // examinationController.setUserController(pacientController);
       // tu sa mozu vytovrit nejak
+      sc = new Scanner(System.in);
+      examinationController = new ExaminationController(UserController.getInstance(examinationController));
+      pacientController = UserController.getInstance(examinationController);
+      acceptPacientView = new PacientView(sc, pacientController);
+      examinationView = new ExaminationView(sc, examinationController);
    }
     public static void main(String[] args) {
       init();
