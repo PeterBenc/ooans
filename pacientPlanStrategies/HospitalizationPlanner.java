@@ -18,5 +18,5 @@ public class HospitalizationPlanner implements SchedulePlanner {
         System.out.println("Created hospitalization plan for pacient");
         return this.hospitalizationScheduleBuilder.getSchedule(pacient);
     }
-    
+
 }

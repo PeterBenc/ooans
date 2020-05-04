@@ -1,7 +1,7 @@
 package view;
 
 public class Button implements Menu {
-    private  String caption;
+    private String caption;
 
     public Button(String caption) {
         this.caption = caption;

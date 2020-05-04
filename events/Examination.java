@@ -5,11 +5,12 @@ import users.Pacient;
 import users.Personel;
 
 public class Examination extends Event {
-    private boolean completed=false;
+    private boolean completed = false;
     private int duration;
-    public Examination(Pacient pacient, Personel personel,int duration) {
+
+    public Examination(Pacient pacient, Personel personel, int duration) {
         super(pacient, personel);
-        this.duration=duration;
+        this.duration = duration;
         // TODO Auto-generated constructor stub
     }
 

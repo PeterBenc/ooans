@@ -12,11 +12,12 @@ public class ExaminationController {
 
     private UserController userController;
     private MachineMediator machineMediator = new MachineMediator();
-    MachineFactory factory=new MachineFactory();
+    MachineFactory factory = new MachineFactory();
+
     public ExaminationController(UserController userController) {
         this.userController = userController;
     }
-    
+
     public void setUserController(UserController userController) {
         this.userController = userController;
     }
@@ -28,7 +29,7 @@ public class ExaminationController {
 //            ? /*new CTMachine(this.machineMediator)*/ factory.getMachine("CT",this.machineMediator)
 //            :/* new MRIMachine(this.machineMediator)*/ factory.getMachine("MRI",this.machineMediator)
 //        ;
-        Machine machine =factory.getMachine(machineName,this.machineMediator);
+        Machine machine = factory.getMachine(machineName, this.machineMediator);
         EKGMachine ekgMachine = new EKGMachine(this.machineMediator)/*factory.getMachine("EKG",this.machineMediator)*/;
         machineMediator.setEkgMachine(ekgMachine);
         machineMediator.setMachine(machine);
@@ -36,12 +37,12 @@ public class ExaminationController {
         pacient.setMachine(machine);
 
 
-        ExaminationIterator examinationIterator= (ExaminationIterator) pacient.getSchedule().createIterator();
-         System.out.println("Vykonaj nevykonane vysetrenia");
-        while(examinationIterator.hasNext())   // iterator
+        ExaminationIterator examinationIterator = (ExaminationIterator) pacient.getSchedule().createIterator();
+        System.out.println("Vykonaj nevykonane vysetrenia");
+        while (examinationIterator.hasNext())   // iterator
         {
-            Examination examination = (Examination)examinationIterator.next();
-            if(examination!=null) {
+            Examination examination = (Examination) examinationIterator.next();
+            if (examination != null) {
 
                 System.out.print(examination + " , ");
                 machine.executeExamination(examination);  // volanie template method

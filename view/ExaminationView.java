@@ -13,17 +13,15 @@ public class ExaminationView {
     protected UserController userController;
     private ExaminationController examinationController;
     SubMenu mainMenu = new SubMenu();
-    Button chooseMachine= new Button("Vyber zariadenie");
-    TextField idPatient= new TextField("Id pacienta: ");
-    Button machineEKG=new Button("EKG");
-    Button machineMRI=new Button("MRI");
-    Button machineCT=new Button("CT");
+    Button chooseMachine = new Button("Vyber zariadenie");
+    TextField idPatient = new TextField("Id pacienta: ");
+    Button machineEKG = new Button("EKG");
+    Button machineMRI = new Button("MRI");
+    Button machineCT = new Button("CT");
     SubMenu subMenu = new SubMenu();
-    Button machineSettings=new Button("Uloz nastavenia zariadenia");
-    TextField settings= new TextField("Nastavenie: ");
-    Button startExamination= new Button("Vykonaj vysetrenie");
-
-
+    Button machineSettings = new Button("Uloz nastavenia zariadenia");
+    TextField settings = new TextField("Nastavenie: ");
+    Button startExamination = new Button("Vykonaj vysetrenie");
 
 
     public ExaminationView(Scanner sc, ExaminationController examinationController) {

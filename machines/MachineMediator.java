@@ -4,8 +4,9 @@ public class MachineMediator {
 
     public EKGMachine ekgMachine;
     public Machine machine;
-    
-    public MachineMediator() {}
+
+    public MachineMediator() {
+    }
 
     public void setEkgMachine(EKGMachine ekgMachine) {
         this.ekgMachine = ekgMachine;

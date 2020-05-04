@@ -17,5 +17,5 @@ public class Transfer extends Event {
         this.done = done;
         // eventObserver.update();
     }
-    
+
 }

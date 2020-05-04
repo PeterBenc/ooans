@@ -19,13 +19,13 @@ public class ExaminationScheduleBuilder implements ScheduleBuilder {
     @Override
     public ArrayList<Examination> buildExaminations(Pacient pacient) {
         ArrayList<Examination> examinations = new ArrayList<Examination>();
-        examinations.add(new Examination(pacient, userController.getDoctor(),30));
-        examinations.add(new Examination(pacient, userController.getDoctor(),40));
+        examinations.add(new Examination(pacient, userController.getDoctor(), 30));
+        examinations.add(new Examination(pacient, userController.getDoctor(), 40));
         return examinations;
     }
 
     @Override
-    public ArrayList<Transfer> buildTranfers(Pacient pacient){
+    public ArrayList<Transfer> buildTranfers(Pacient pacient) {
         ArrayList<Transfer> transfers = new ArrayList<Transfer>();
         transfers.add(new Transfer(pacient, userController.getNurse()));
         transfers.add(new Transfer(pacient, userController.getNurse()));
@@ -48,5 +48,5 @@ public class ExaminationScheduleBuilder implements ScheduleBuilder {
         events.addAll(buildTreatments(pacient));
         return new EventSchedule(events);
     }
-    
+
 }

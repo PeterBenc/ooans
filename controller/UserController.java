@@ -29,11 +29,11 @@ public class UserController {
     public SchedulePlanner getHospitalizationPlanner() {
         return this.hospitalizationPlaner;
     }
-    
+
     public void addPacient(String name, int createExaminationPlan) {
         Pacient newPacient = new Pacient(
-            name,
-            createExaminationPlan == 1 ? this.examinationPlanner : this.noschedulePlanner
+                name,
+                createExaminationPlan == 1 ? this.examinationPlanner : this.noschedulePlanner
         );
         this.pacients.add(newPacient);
 
@@ -43,11 +43,11 @@ public class UserController {
 
     public void transportPacient(String name) {
         Pacient pacient = getPacient(name);
-        
+
     }
 
     public Pacient getPacient(String name) {
-        for (Pacient pacient:pacients) {
+        for (Pacient pacient : pacients) {
             if (pacient.getName().equals(name)) {
                 return pacient;
             }

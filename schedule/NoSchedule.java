@@ -13,7 +13,7 @@ public class NoSchedule extends Schedule {
     }
 
     public static NoSchedule getInstance() {
-        if(noSchedule == null) {
+        if (noSchedule == null) {
             return new NoSchedule();
         }
         return noSchedule;

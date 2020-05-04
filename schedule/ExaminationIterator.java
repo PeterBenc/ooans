@@ -6,13 +6,13 @@ import events.Examination;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ExaminationIterator  implements Iterator {
- private ArrayList<Event> events;
- private int index;
+public class ExaminationIterator implements Iterator {
+    private ArrayList<Event> events;
+    private int index;
 
     public ExaminationIterator(ArrayList<Event> events) {
         this.events = events;
-        this.index=0;
+        this.index = 0;
     }
 
     @Override
@@ -22,10 +22,8 @@ public class ExaminationIterator  implements Iterator {
 
     @Override
     public Object next() {
-        while(this.hasNext())
-        {
-            if((events.get(index)instanceof Examination) &&(!((Examination) events.get(index)).isCompleted()))
-            {
+        while (this.hasNext()) {
+            if ((events.get(index) instanceof Examination) && (!((Examination) events.get(index)).isCompleted())) {
 
                 return events.get(index++);
 
@@ -35,7 +33,6 @@ public class ExaminationIterator  implements Iterator {
         }
         return null;
     }
-
 
 
 }

@@ -45,9 +45,9 @@ public abstract class Machine {
     public boolean confirmByPersonel() {
         System.out.println("Potvrdte zaciatok vysetrenia.");
         Scanner sc = new Scanner(System.in);
-        int examinePacient  = sc.nextInt();
+        int examinePacient = sc.nextInt();
         sc.nextLine();
-       // sc.close();
+        // sc.close();
         return examinePacient == 1 ? true : false;
     }
 
@@ -57,5 +57,5 @@ public abstract class Machine {
         System.out.println("Vysetrenie ukoncene");
         examination.setCompleted(true);
     }
-    
+
 }

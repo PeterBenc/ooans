@@ -17,5 +17,5 @@ public class ExaminationPlanner implements SchedulePlanner {
         System.out.println("Created examination plan for pacient");
         return this.examinationScheduleBuilder.getSchedule(pacient);
     }
-    
+
 }

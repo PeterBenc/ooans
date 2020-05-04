@@ -1,8 +1,8 @@
 package view;
 
-public class TextField implements Menu{
+public class TextField implements Menu {
 
-    private  String text;
+    private String text;
 
     public TextField(String text) {
         this.text = text;
@@ -12,7 +12,6 @@ public class TextField implements Menu{
     public void render() {
         System.out.println("Rendered textfield s textom " + text);
     }
-
 
 
 }

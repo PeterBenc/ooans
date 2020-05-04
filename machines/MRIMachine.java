@@ -18,5 +18,5 @@ public class MRIMachine extends Machine {
         System.out.println("Executing examination on MRI machine");
 
     }
-    
+
 }

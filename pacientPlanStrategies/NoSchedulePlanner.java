@@ -11,5 +11,5 @@ public class NoSchedulePlanner implements SchedulePlanner {
         System.out.println("Rozvrh nebol vytvoreny.");
         return noSchedule;
     }
-    
+
 }
