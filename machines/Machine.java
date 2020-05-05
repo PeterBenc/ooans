@@ -1,5 +1,7 @@
 package machines;
 
+import events.Examination;
+
 import java.util.Scanner;
 
 public abstract class Machine {
@@ -15,7 +17,7 @@ public abstract class Machine {
         this.pacientStateOK = pacientStateOK;
     }
 
-    public void executeExamination() {
+    public void executeExamination(Examination examination) {
         // template method
         /**
          * zistim ci je pacient v pohode, to bude ze mediatorom sa spytam
@@ -31,7 +33,7 @@ public abstract class Machine {
         setExaminationVariables();
         confirmByPersonel();
         exexute(); // tu by sa mozno dal pouzit command
-        endExamination();
+        endExamination(examination);
     }
 
     public void checkPacientState() {
@@ -43,7 +45,7 @@ public abstract class Machine {
     public boolean confirmByPersonel() {
         System.out.println("Potvrdte zaciatok vysetrenia.");
         Scanner sc = new Scanner(System.in);
-        int examinePacient  = sc.nextInt();
+        int examinePacient = sc.nextInt();
         sc.nextLine();
         sc.close();
         return examinePacient == 1 ? true : false;
@@ -51,8 +53,9 @@ public abstract class Machine {
 
     public abstract void exexute();
 
-    public void endExamination() {
+    public void endExamination(Examination examination) {
         System.out.println("Vysetrenie ukoncene");
+        examination.setCompleted(true);
     }
-    
+
 }

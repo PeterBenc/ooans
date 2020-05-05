@@ -1,6 +1,7 @@
 package schedule;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import events.Event;
 
@@ -17,5 +18,10 @@ public class EventSchedule extends Schedule {
         System.out.println(this.events);
         return this.events;
     }
-    
+
+    @Override
+    public Iterator createIterator() {
+        return new ExaminationIterator(events);
+    }
+
 }

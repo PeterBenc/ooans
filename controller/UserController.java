@@ -1,7 +1,11 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import events.*;
+// import jdk.internal.event.Event;
+// import jdk.internal.net.http.websocket.Transport;
 import pacientPlanStrategies.*;
 import users.*;
 
@@ -29,28 +33,46 @@ public class UserController {
     public SchedulePlanner getHospitalizationPlanner() {
         return this.hospitalizationPlaner;
     }
-    
+
     public void addPacient(String name, int createExaminationPlan) {
         Pacient newPacient = new Pacient(
-            name,
-            createExaminationPlan == 1 ? this.examinationPlanner : this.noschedulePlanner
+                name,
+                createExaminationPlan == 1 ? this.examinationPlanner : this.noschedulePlanner
         );
         this.pacients.add(newPacient);
-        newPacient.createSchedule();
+
+
+        newPacient.createSchedule(this.doctor);
     }
 
     public void transportPacient(String name) {
         Pacient pacient = getPacient(name);
-        
+        ArrayList<Event> transports = pacient.getSchedule().getEvents();
+        for(Event event:transports) {
+            event.setDone(true);
+        }
+        System.out.println("Pacient bol presunuty");
     }
 
     public Pacient getPacient(String name) {
-        for (Pacient pacient:pacients) {
+        for (Pacient pacient : pacients) {
             if (pacient.getName().equals(name)) {
                 return pacient;
             }
         }
         return null;
+    }
+
+    public void setPacientExaminationsPlan(String name) {
+        Pacient pacient = getPacient(name);
+        pacient.setSchedulePlanner(this.examinationPlanner);
+        pacient.createSchedule(this.doctor);
+    }
+
+    public void setPacientHospitalizationPlan(String name) {
+        Pacient pacient = getPacient(name);
+        pacient.setSchedulePlanner(this.hospitalizationPlaner);
+        pacient.createSchedule(this.doctor);
     }
 
     public Doctor getDoctor() {

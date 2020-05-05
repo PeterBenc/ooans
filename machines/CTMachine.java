@@ -18,5 +18,5 @@ public class CTMachine extends Machine {
         System.out.println("Executing examination on CT machine");
 
     }
-    
+
 }

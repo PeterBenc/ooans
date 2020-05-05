@@ -10,5 +10,5 @@ public class Treatment extends Event {
         super(pacient, personel);
         // TODO Auto-generated constructor stub
     }
-    
+
 }

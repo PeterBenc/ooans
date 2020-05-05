@@ -7,7 +7,7 @@ import users.Pacient;
 import users.Personel;
 
 public class Event {
-    
+
     protected Date date;
     protected Pacient pacient;
     protected Personel personel;
@@ -16,5 +16,14 @@ public class Event {
         this.pacient = pacient;
         this.personel = personel;
     }
-    
+
+    public void setDone(Boolean done) {
+    }
+
+    public void notifyAllObservers() {
+    }
+
+    public void registerObserver(Doctor doctor) {
+    }
+
 }

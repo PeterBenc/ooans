@@ -1,6 +1,7 @@
 package schedule;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import events.Event;
 
@@ -12,7 +13,7 @@ public class NoSchedule extends Schedule {
     }
 
     public static NoSchedule getInstance() {
-        if(noSchedule == null) {
+        if (noSchedule == null) {
             return new NoSchedule();
         }
         return noSchedule;
@@ -23,5 +24,10 @@ public class NoSchedule extends Schedule {
         System.out.println("Rozvrh neexistuje.");
         return null;
     }
-    
+
+    @Override
+    public Iterator createIterator() {
+        return null;
+    }
+
 }
