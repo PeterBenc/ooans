@@ -32,17 +32,17 @@ public abstract class Machine {
         }
         setExaminationVariables();
         confirmByPersonel();
-        exexute(); // tu by sa mozno dal pouzit command
+        exexute();
         endExamination(examination);
     }
 
-    public void checkPacientState() {
+    private void checkPacientState() {
         this.machineMediator.checkEkgState();
     }
 
     public abstract void setExaminationVariables();
 
-    public boolean confirmByPersonel() {
+    private boolean confirmByPersonel() {
         System.out.println("Potvrdte zaciatok vysetrenia.");
         Scanner sc = new Scanner(System.in);
         int examinePacient = sc.nextInt();
@@ -53,7 +53,7 @@ public abstract class Machine {
 
     public abstract void exexute();
 
-    public void endExamination(Examination examination) {
+    private void endExamination(Examination examination) {
         System.out.println("Vysetrenie ukoncene");
         examination.setCompleted(true);
     }

@@ -38,7 +38,7 @@ public class ExaminationController {
         {
             Examination examination = (Examination) examinationIterator.next();
             if (examination != null) {
-                System.out.println("Zadajte pristroj potrebny na vykonanie vysetrenia");
+                System.out.println("Zadajte pristroj potrebny pre vysetrenie "+ examination);
 
                 String machineName = sc.nextLine();
                 Machine machine = factory.getMachine(machineName, this.machineMediator);
@@ -48,7 +48,7 @@ public class ExaminationController {
                 pacient.setEkgMachine(ekgMachine);
                 pacient.setMachine(machine);
 
-                System.out.print(examination + " , ");
+                //System.out.println(examination);
                 machine.executeExamination(examination);  // volanie template method
             }
         }
