@@ -8,9 +8,10 @@ import users.Doctor;
 import users.Pacient;
 
 import java.lang.management.ManagementFactory;
+import java.util.Scanner;
 
 public class ExaminationController {
-
+    protected Scanner sc= new Scanner(System.in);
     private UserController userController;
     private MachineMediator machineMediator = new MachineMediator();
     MachineFactory factory = new MachineFactory();
@@ -23,24 +24,13 @@ public class ExaminationController {
         this.userController = userController;
     }
 
-    public void examinePacient(String name, String machineName) {
+    public void examinePacient(String name/*, String machineName*/) {
         Doctor doctor = this.userController.getDoctor();
         Pacient pacient = this.userController.getPacient(name);
         if (doctor.getIsPacientReady() == false) {
-            System.out.println("Pacient nieje prevezeny na vysetrenie");
+            System.out.println("Pacient niej e prevezeny na vysetrenie");
             return;
         }
-//        Machine machine = machineName.equals("CT")
-//            ? /*new CTMachine(this.machineMediator)*/ factory.getMachine("CT",this.machineMediator)
-//            :/* new MRIMachine(this.machineMediator)*/ factory.getMachine("MRI",this.machineMediator)
-//        ;
-        Machine machine = factory.getMachine(machineName, this.machineMediator);
-        EKGMachine ekgMachine = new EKGMachine(this.machineMediator)/*factory.getMachine("EKG",this.machineMediator)*/;
-        machineMediator.setEkgMachine(ekgMachine);
-        machineMediator.setMachine(machine);
-        pacient.setEkgMachine(ekgMachine);
-        pacient.setMachine(machine);
-
 
         ExaminationIterator examinationIterator = (ExaminationIterator) pacient.getSchedule().createIterator();
         System.out.println("Vykonaj nevykonane vysetrenia");
@@ -48,6 +38,15 @@ public class ExaminationController {
         {
             Examination examination = (Examination) examinationIterator.next();
             if (examination != null) {
+                System.out.println("Zadajte pristroj potrebny na vykonanie vysetrenia");
+
+                String machineName = sc.nextLine();
+                Machine machine = factory.getMachine(machineName, this.machineMediator);
+                EKGMachine ekgMachine = new EKGMachine(this.machineMediator)/*factory.getMachine("EKG",this.machineMediator)*/;
+                machineMediator.setEkgMachine(ekgMachine);
+                machineMediator.setMachine(machine);
+                pacient.setEkgMachine(ekgMachine);
+                pacient.setMachine(machine);
 
                 System.out.print(examination + " , ");
                 machine.executeExamination(examination);  // volanie template method
@@ -56,7 +55,7 @@ public class ExaminationController {
         doctor.setIsPacientReady(false);
 
 
-        pacient.setSchedulePlanner(userController.getHospitalizationPlanner());  // preco nastavime po vysetreniach gethospilaztion planner
+        pacient.setSchedulePlanner(userController.getHospitalizationPlanner());
         pacient.createSchedule(doctor);
     }
 }

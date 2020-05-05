@@ -7,7 +7,7 @@ import view.ExaminationView;
 
 public class Main {
 
-    private static Scanner sc; // = new Scanner(System.in);
+    private static Scanner sc; //
     private static ExaminationController examinationController; // = new ExaminationController();
     private static UserController pacientController; // = new UserController(examinationController);
     private static PacientView acceptPacientView; // = new PacientView(sc, pacientController);
