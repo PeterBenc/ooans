@@ -23,7 +23,7 @@ public class ExaminationIterator implements Iterator {
     @Override
     public Object next() {
         while (this.hasNext()) {
-            if ((events.get(index) instanceof Examination) && (!((Examination) events.get(index)).isCompleted())) {
+            if ((events.get(index) instanceof Examination) && (!((Examination) events.get(index)).getDone())) {
 
                 return events.get(index++);
 

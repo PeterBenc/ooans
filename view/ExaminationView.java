@@ -46,7 +46,7 @@ public class ExaminationView {
         String name = sc.nextLine();
 
         this.examinationController.examinePacient(name/*, machine*/);
-        System.out.println("Vysetrenie bolo ukoncene");
+        System.out.println("Vysetrenia boli ukoncene");
         // tu bude ze chcete vytvorit hospitalizaciu
         // ked tak sa zmeni ta strategy a zas sa zavola create events, 
     }

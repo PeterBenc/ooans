@@ -48,8 +48,9 @@ public class UserController {
     public void transportPacient(String name) {
         Pacient pacient = getPacient(name);
         ArrayList<Event> transports = pacient.getSchedule().getEvents();
-        for(Event event:transports) {
-            event.setDone(true);
+        for (Event event : transports) {
+            if (event instanceof Transfer)
+                event.setDone(true);
         }
         System.out.println("Pacient bol presunuty");
     }

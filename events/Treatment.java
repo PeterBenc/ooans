@@ -11,4 +11,29 @@ public class Treatment extends Event {
         // TODO Auto-generated constructor stub
     }
 
+    @Override
+    public void setDone(Boolean done) {
+
+    }
+
+    @Override
+    public boolean getDone() {
+        return this.done;
+    }
+
+    @Override
+    public void notifyAllObservers() {
+
+    }
+
+    @Override
+    public void registerObserver(Doctor doctor) {
+
+    }
+
+    @Override
+    public void unregisterObserver(Doctor doctor) {
+
+    }
+
 }

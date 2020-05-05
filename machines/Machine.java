@@ -55,7 +55,7 @@ public abstract class Machine {
 
     private void endExamination(Examination examination) {
         System.out.println("Vysetrenie ukoncene");
-        examination.setCompleted(true);
+        examination.setDone(true);
     }
 
 }
