@@ -16,5 +16,7 @@ public interface ScheduleBuilder {
     public ArrayList<Treatment> buildTreatments(Pacient pacient);
 
     public Schedule getSchedule(Pacient pacient, Doctor doctor);
+
+    public void setnOfTreatments(int nOfTreatments);
     
 }
