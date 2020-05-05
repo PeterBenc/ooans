@@ -27,6 +27,18 @@ public class PacientView {
         userController.addPacient(pacientName, createExaminationPlan);
     }
 
+    public void setPacientExaminationPlan() {
+        System.out.println("Zadaj meno pacienta:");
+        String pacientName = sc.nextLine();
+        userController.setPacientExaminationsPlan(pacientName);
+    }
+
+    public void setPacientHospitalizationPlan() {
+        System.out.println("Zadaj meno pacienta:");
+        String pacientName = sc.nextLine();
+        userController.setPacientHospitalizationPlan(pacientName);
+    }
+
     public void printPacientSchedule() {
         System.out.println("Zadaj meno pacienta");
         String name = sc.nextLine();

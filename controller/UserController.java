@@ -63,6 +63,18 @@ public class UserController {
         return null;
     }
 
+    public void setPacientExaminationsPlan(String name) {
+        Pacient pacient = getPacient(name);
+        pacient.setSchedulePlanner(this.examinationPlanner);
+        pacient.createSchedule(this.doctor);
+    }
+
+    public void setPacientHospitalizationPlan(String name) {
+        Pacient pacient = getPacient(name);
+        pacient.setSchedulePlanner(this.hospitalizationPlaner);
+        pacient.createSchedule(this.doctor);
+    }
+
     public Doctor getDoctor() {
         return this.doctor;
     }

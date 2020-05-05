@@ -33,21 +33,22 @@ public class Main {
             }
             switch (scenarioNumber) {
                 case 1:
-                    // Sem vzdy pride volanie funkcie nejakeho view
-                    // a tam sa budu diat dalsie inputy a outputy
-                    System.out.println("Scenar c.1");
-                    break;
-                case 2:
                     examinationView.examinePacient();
                     break;
-                case 3:
+                case 2:
                     acceptPacientView.transportPatient();
                     break;
-                case 9:
+                case 3:
                     acceptPacientView.acceptPatient();
                     break;
-                case 10:
+                case 4:
                     acceptPacientView.printPacientSchedule();
+                    break;
+                case 5:
+                    acceptPacientView.setPacientExaminationPlan();
+                    break;
+                case 6:
+                    acceptPacientView.setPacientHospitalizationPlan();
                     break;
                 default:
                     break;
