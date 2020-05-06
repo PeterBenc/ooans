@@ -3,6 +3,7 @@ package events;
 import users.Doctor;
 import users.Pacient;
 import users.Personel;
+import users.TransferObserver;
 
 public class Examination extends Event {
     private int duration;
@@ -37,12 +38,12 @@ public class Examination extends Event {
     }
 
     @Override
-    public void registerObserver(Doctor doctor) {
+    public void registerObserver(TransferObserver observer) {
 
     }
 
     @Override
-    public void unregisterObserver(Doctor doctor) {
+    public void unregisterObserver(TransferObserver observer) {
 
     }
 }

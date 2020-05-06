@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import users.Doctor;
 import users.Pacient;
 import users.Personel;
+import users.TransferObserver;
 
 public class Transfer extends Event {
 
-    private ArrayList<Doctor> doctorObservers = new ArrayList<Doctor>();
+    private ArrayList<TransferObserver> doctorObservers = new ArrayList<TransferObserver>();
 
     public Transfer(Pacient pacient, Personel personel) {
         super(pacient, personel);
@@ -26,19 +27,19 @@ public class Transfer extends Event {
     }
 
     public void notifyAllObservers() {
-        for (Doctor doctor : this.doctorObservers) {
-            doctor.update();
+        for (TransferObserver observer : this.doctorObservers) {
+            observer.update();
             System.out.println("Doktor bol notifikovany");
         }
     }
 
-    public void registerObserver(Doctor doctor) {
-        this.doctorObservers.add(doctor);
+    public void registerObserver(TransferObserver observer) {
+        this.doctorObservers.add(observer);
     }
 
     @Override
-    public void unregisterObserver(Doctor doctor) {
-        this.doctorObservers.remove(doctorObservers.indexOf(doctor));
+    public void unregisterObserver(TransferObserver observer) {
+        this.doctorObservers.remove(doctorObservers.indexOf(observer));
     }
 
 }

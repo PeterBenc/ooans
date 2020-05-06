@@ -5,6 +5,7 @@ import java.sql.Date;
 import users.Doctor;
 import users.Pacient;
 import users.Personel;
+import users.TransferObserver;
 
 public abstract class Event {
 
@@ -25,8 +26,8 @@ public abstract class Event {
     public abstract void notifyAllObservers();
 
 
-    public abstract void registerObserver(Doctor doctor);
+    public abstract void registerObserver(TransferObserver observer);
 
 
-    public abstract void unregisterObserver(Doctor doctor);
+    public abstract void unregisterObserver(TransferObserver observer);
 }

@@ -28,7 +28,7 @@ public class ExaminationController {
         Doctor doctor = this.userController.getDoctor();
         Pacient pacient = this.userController.getPacient(name);
         if (doctor.getIsPacientReady() == false) {
-            System.out.println("Pacient niej e prevezeny na vysetrenie");
+            System.out.println("Pacient nie je prevezeny na vysetrenie");
             return;
         }
 
@@ -50,6 +50,7 @@ public class ExaminationController {
 
                 //System.out.println(examination);
                 machine.executeExamination(examination);  // volanie template method
+                System.out.println("Vysetrenie bolo vykonane");
             }
         }
         doctor.setIsPacientReady(false);
