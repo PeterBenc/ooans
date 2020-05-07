@@ -8,13 +8,13 @@ public class CTMachine extends Machine {
     }
 
     @Override
-    public void setExaminationVariables() {
+    protected void setExaminationVariables() {
         System.out.println("Setting variables on CT machine");
 
     }
 
     @Override
-    public void exexute() {
+    protected void execute() {
         System.out.println("Executing examination on CT machine");
 
     }

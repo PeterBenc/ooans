@@ -32,7 +32,7 @@ public abstract class Machine {
         }
         setExaminationVariables();
         confirmByPersonel();
-        exexute();
+        execute();
         endExamination(examination);
     }
 
@@ -40,7 +40,7 @@ public abstract class Machine {
         this.machineMediator.checkEkgState();
     }
 
-    public abstract void setExaminationVariables();
+    protected abstract void setExaminationVariables();
 
     private boolean confirmByPersonel() {
         System.out.println("Potvrdte zaciatok vysetrenia.");
@@ -51,7 +51,7 @@ public abstract class Machine {
         return examinePacient == 1 ? true : false;
     }
 
-    public abstract void exexute();
+    protected abstract void execute();
 
     private void endExamination(Examination examination) {
         System.out.println("Vysetrenie ukoncene");
