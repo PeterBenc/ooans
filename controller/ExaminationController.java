@@ -42,13 +42,11 @@ public class ExaminationController {
 
                 String machineName = sc.nextLine();
                 Machine machine = factory.getMachine(machineName, this.machineMediator);
-                EKGMachine ekgMachine = new EKGMachine(this.machineMediator)/*factory.getMachine("EKG",this.machineMediator)*/;
+                EKGMachine ekgMachine = new EKGMachine(this.machineMediator);
                 machineMediator.setEkgMachine(ekgMachine);
                 machineMediator.setMachine(machine);
                 pacient.setEkgMachine(ekgMachine);
                 pacient.setMachine(machine);
-
-                //System.out.println(examination);
                 machine.executeExamination(examination);  // volanie template method
                 System.out.println("Vysetrenie bolo vykonane");
             }

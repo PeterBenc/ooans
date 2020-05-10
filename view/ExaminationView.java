@@ -8,7 +8,6 @@ import org.w3c.dom.Text;
 import users.Pacient;
 
 public class ExaminationView {
-
     protected Scanner sc;
     protected UserController userController;
     private ExaminationController examinationController;
@@ -22,8 +21,6 @@ public class ExaminationView {
     Button machineSettings = new Button("Uloz nastavenia zariadenia");
     TextField settings = new TextField("Nastavenie: ");
     Button startExamination = new Button("Vykonaj vysetrenie");
-
-
     public ExaminationView(Scanner sc, ExaminationController examinationController) {
         this.sc = sc;
         this.examinationController = examinationController;
@@ -36,10 +33,7 @@ public class ExaminationView {
         subMenu.add(settings);
         subMenu.add(startExamination);
         mainMenu.add(subMenu);
-
-
     }
-
     public void examinePacient() {
         mainMenu.render();
         System.out.println("Zadaj meno pacienta");

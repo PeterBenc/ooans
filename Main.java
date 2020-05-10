@@ -7,11 +7,11 @@ import view.ExaminationView;
 
 public class Main {
 
-    private static Scanner sc; //
-    private static ExaminationController examinationController; // = new ExaminationController();
-    private static UserController pacientController; // = new UserController(examinationController);
-    private static PacientView acceptPacientView; // = new PacientView(sc, pacientController);
-    private static ExaminationView examinationView; // = new ExaminationView(sc, examinationController);
+    private static Scanner sc;
+    private static ExaminationController examinationController;
+    private static UserController pacientController;
+    private static PacientView acceptPacientView;
+    private static ExaminationView examinationView;
 
     public static void init() {
         sc = new Scanner(System.in);
