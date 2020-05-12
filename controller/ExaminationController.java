@@ -16,14 +16,6 @@ public class ExaminationController {
     private MachineMediator machineMediator = new MachineMediator();
     MachineFactory factory = new MachineFactory();
 
-    public ExaminationController(UserController userController) {
-        this.userController = userController;
-    }
-
-    public void setUserController(UserController userController) {
-        this.userController = userController;
-    }
-
     public void examinePacient(String name/*, String machineName*/) {
         Doctor doctor = this.userController.getDoctor();
         Pacient pacient = this.userController.getPacient(name);
@@ -56,5 +48,13 @@ public class ExaminationController {
 
         pacient.setSchedulePlanner(userController.getHospitalizationPlanner());
         pacient.createSchedule(doctor);
+    }
+
+    public ExaminationController(UserController userController) {
+        this.userController = userController;
+    }
+
+    public void setUserController(UserController userController) {
+        this.userController = userController;
     }
 }

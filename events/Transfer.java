@@ -13,17 +13,6 @@ public class Transfer extends Event {
 
     public Transfer(Pacient pacient, Personel personel) {
         super(pacient, personel);
-        // TODO Auto-generated constructor stub
-    }
-
-    public void setDone(Boolean done) {
-        this.done = done;
-        notifyAllObservers();
-    }
-
-    @Override
-    public boolean getDone() {
-        return this.done;
     }
 
     public void notifyAllObservers() {
@@ -40,6 +29,16 @@ public class Transfer extends Event {
     @Override
     public void unregisterObserver(TransferObserver observer) {
         this.doctorObservers.remove(doctorObservers.indexOf(observer));
+    }
+
+    public void setDone(Boolean done) {
+        this.done = done;
+        notifyAllObservers();
+    }
+
+    @Override
+    public boolean getDone() {
+        return this.done;
     }
 
 }

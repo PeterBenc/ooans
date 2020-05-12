@@ -10,14 +10,14 @@ import users.Pacient;
 public class ExaminationPlanner implements SchedulePlanner {
 
     private ConcreteScheduleBuilder concreteScheduelBuilder;
+    private Director director = new ExaminationDirector();
 
     public ExaminationPlanner(UserController userController) {
         this.concreteScheduelBuilder = new ConcreteScheduleBuilder(userController);
     }
 
     public Schedule createEvents(Pacient pacient, Doctor doctor) {
-        Director director = new Director();
-        director.constructExaminationPlan(concreteScheduelBuilder);
+        director.constructPlan(concreteScheduelBuilder);
         System.out.println("Created examination plan for pacient");
         return this.concreteScheduelBuilder.getSchedule(pacient, doctor);
     }

@@ -3,20 +3,12 @@ package scheduleBuilders;
 import users.Doctor;
 import users.Pacient;
 
-public class Director {
+public interface Director {
 
     private ScheduleBuilder builder;
 
-    public void setBuilder(ScheduleBuilder builder) {
-        this.builder = builder;
-    }
+    public void setBuilder(ScheduleBuilder builder);
 
-    public void constructExaminationPlan(ScheduleBuilder builder) {
-        builder.setnOfTreatments(0);
-    }
-
-    public void constructHospitalizationPlan(ScheduleBuilder builder) {
-        builder.setnOfTreatments(1);
-    }
+    public void constructPlan(ScheduleBuilder builder);
     
 }

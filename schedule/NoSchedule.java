@@ -9,6 +9,12 @@ public class NoSchedule extends Schedule {
 
     private static NoSchedule noSchedule = null;
 
+    @Override
+    public ArrayList<Event> getEvents() {
+        System.out.println("Rozvrh neexistuje.");
+        return null;
+    }
+
     private NoSchedule() {
     }
 
@@ -17,12 +23,6 @@ public class NoSchedule extends Schedule {
             return new NoSchedule();
         }
         return noSchedule;
-    }
-
-    @Override
-    public ArrayList<Event> getEvents() {
-        System.out.println("Rozvrh neexistuje.");
-        return null;
     }
 
     @Override

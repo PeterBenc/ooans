@@ -10,6 +10,10 @@ import pacientPlanStrategies.*;
 import users.*;
 
 public class UserController {
+
+    private SchedulePlanner hospitalizationPlaner = new HospitalizationPlanner(this);
+    private SchedulePlanner examinationPlanner = new ExaminationPlanner(this);
+    private SchedulePlanner noschedulePlanner = new NoSchedulePlanner();
     private static UserController userController = null;
     private ExaminationController examinationController;
     private ArrayList<Pacient> pacients = new ArrayList<Pacient>();
@@ -19,6 +23,22 @@ public class UserController {
     private SchedulePlanner examinationPlanner = new ExaminationPlanner(this);
     private SchedulePlanner noschedulePlanner = new NoSchedulePlanner();
 
+    public void setPacientExaminationsPlan(String name) {
+        Pacient pacient = getPacient(name);
+        pacient.setSchedulePlanner(this.examinationPlanner);
+        pacient.createSchedule(this.doctor);
+    }
+
+    public void transportPacient(String name) {
+        Pacient pacient = getPacient(name);
+        ArrayList<Event> transports = pacient.getSchedule().getEvents();
+        for (Event event : transports) {
+            if (event instanceof Transfer)
+                event.setDone(true);
+        }
+        System.out.println("Pacient bol presunuty");
+    }
+    
     private UserController(ExaminationController examinationController) {
         this.examinationController = examinationController;
     }
@@ -45,16 +65,6 @@ public class UserController {
         newPacient.createSchedule(this.doctor);
     }
 
-    public void transportPacient(String name) {
-        Pacient pacient = getPacient(name);
-        ArrayList<Event> transports = pacient.getSchedule().getEvents();
-        for (Event event : transports) {
-            if (event instanceof Transfer)
-                event.setDone(true);
-        }
-        System.out.println("Pacient bol presunuty");
-    }
-
     public Pacient getPacient(String name) {
         for (Pacient pacient : pacients) {
             if (pacient.getName().equals(name)) {
@@ -62,12 +72,6 @@ public class UserController {
             }
         }
         return null;
-    }
-
-    public void setPacientExaminationsPlan(String name) {
-        Pacient pacient = getPacient(name);
-        pacient.setSchedulePlanner(this.examinationPlanner);
-        pacient.createSchedule(this.doctor);
     }
 
     public void setPacientHospitalizationPlan(String name) {

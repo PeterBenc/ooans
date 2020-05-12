@@ -22,8 +22,7 @@ public class ConcreteScheduleBuilder implements ScheduleBuilder {
     public void setnOfTreatments(int nOfTreatments) {
         this.nOfTreatments = nOfTreatments;
     }
-
-
+    
     @Override
     public ArrayList<Examination> buildExaminations(Pacient pacient) {
         ArrayList<Examination> examinations = new ArrayList<Examination>();

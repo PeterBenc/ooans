@@ -4,6 +4,11 @@ import events.Examination;
 import java.util.Scanner;
 public abstract class Machine {
     protected MachineMediator machineMediator;
+
+    private void checkPacientState() {
+        this.machineMediator.checkEkgState();
+    }
+    
     private boolean pacientStateOK = false;
     public Machine(MachineMediator machineMediator) {
         this.machineMediator = machineMediator;
@@ -12,6 +17,7 @@ public abstract class Machine {
     public void setPacientStateOk(Boolean pacientStateOk) {
         this.pacientStateOK = pacientStateOK;
     }
+
     public void executeExamination(Examination examination) {  // template method
         checkPacientState();
         if(this.pacientStateOK == false) {
@@ -22,9 +28,7 @@ public abstract class Machine {
         execute();
         endExamination(examination);
     }
-    private void checkPacientState() {
-        this.machineMediator.checkEkgState();
-    }
+
     protected abstract void setExaminationVariables();
     private boolean confirmByPersonel() {
         System.out.println("Potvrdte zaciatok vysetrenia.");
